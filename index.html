@@ -1,77 +1,605 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>有限会社 美山合成 | プラスチック射出成形加工</title>
-<meta name="description" content="有限会社 美山合成。試作から量産まで、プラスチック射出成形加工を確かな技術でサポートします。">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>有限会社 美山合成 | プラスチック射出成形</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  color:#222;
+  background:#fff;
+  line-height:1.8;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #ddd;
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.logo strong{
+  display:block;
+  font-size:24px;
+  color:#173a55;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  letter-spacing:3px;
+  color:#168fa3;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#333;
+  font-weight:bold;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#168fa3;
+}
+
+/* メインビジュアル */
+
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(10,35,52,.94) 0%,rgba(10,35,52,.78) 52%,rgba(10,35,52,.20) 100%),
+    linear-gradient(135deg,#1a526b,#72c5d4);
+  color:#fff;
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:90px 24px;
+}
+
+.eyebrow{
+  color:#7de2ee;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:clamp(42px,6vw,76px);
+  line-height:1.25;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:650px;
+  margin-bottom:35px;
+}
+
+.button{
+  display:inline-block;
+  padding:14px 30px;
+  background:#18a7b8;
+  color:white;
+  text-decoration:none;
+  border-radius:4px;
+  font-weight:bold;
+}
+
+.button:hover{
+  background:#118594;
+}
+
+/* 共通 */
+
+section{
+  padding:90px 24px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  margin-bottom:45px;
+}
+
+.section-title span{
+  display:block;
+  color:#168fa3;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+.section-title h2{
+  font-size:36px;
+  color:#173a55;
+  margin-top:5px;
+}
+
+/* 事業 */
+
+.business{
+  background:#f4f7f8;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  background:white;
+  padding:35px 28px;
+  border-top:4px solid #18a7b8;
+  box-shadow:0 6px 25px rgba(0,0,0,.07);
+}
+
+.card-number{
+  color:#18a7b8;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.card h3{
+  font-size:22px;
+  margin:8px 0 15px;
+}
+
+/* 写真 */
+
+.photo-section{
+  background:#fff;
+}
+
+.photos{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:15px;
+}
+
+.photo{
+  min-height:300px;
+  background:linear-gradient(135deg,#dbe8eb,#91bac3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#315764;
+  font-weight:bold;
+  overflow:hidden;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo:first-child{
+  min-height:420px;
+}
+
+/* 強み */
+
+.strengths{
+  background:#102c3d;
+  color:white;
+}
+
+.strengths .section-title h2{
+  color:white;
+}
+
+.strength-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.strength{
+  border-left:3px solid #42c6d5;
+  padding-left:20px;
+}
+
+.strength h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+/* 会社概要 */
+
+.company-grid{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:60px;
+  align-items:start;
+}
+
+.company-message{
+  font-size:21px;
+  font-weight:bold;
+  color:#173a55;
+}
+
+.company table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.company th,
+.company td{
+  padding:15px;
+  border-bottom:1px solid #ddd;
+  text-align:left;
+}
+
+.company th{
+  width:30%;
+  color:#173a55;
+}
+
+/* 問い合わせ */
+
+.contact{
+  background:#e9f5f6;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:36px;
+  color:#173a55;
+  margin-bottom:15px;
+}
+
+.contact p{
+  margin-bottom:25px;
+}
+
+/* フッター */
+
+footer{
+  background:#081c29;
+  color:#ccc;
+  padding:40px 24px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+footer strong{
+  color:white;
+  font-size:20px;
+}
+
+/* スマホ */
+
+@media(max-width:800px){
+
+  .header-inner{
+    display:block;
+  }
+
+  nav{
+    margin-top:15px;
+    gap:12px;
+  }
+
+  nav a{
+    font-size:12px;
+  }
+
+  .hero{
+    min-height:540px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .cards,
+  .strength-grid,
+  .company-grid,
+  .photos{
+    grid-template-columns:1fr;
+  }
+
+  .photo,
+  .photo:first-child{
+    min-height:260px;
+  }
+
+  section{
+    padding:65px 20px;
+  }
+}
+
+</style>
 </head>
+
 <body>
+
 <header>
-  <div class="wrap nav">
-    <a class="logo" href="#home"><strong>有限会社 美山合成</strong><span>MIYAMA GOSEI</span></a>
-    <nav>
-      <a href="#home">ホーム</a><a href="#company">会社概要</a><a href="#business">事業内容</a>
-      <a href="#works">対応実績</a><a href="#equipment">設備紹介</a><a href="#quality">品質管理</a><a href="#contact">お問い合わせ</a>
-    </nav>
-  </div>
+<div class="header-inner">
+
+<div class="logo">
+<strong>有限会社 美山合成</strong>
+<span>MIYAMA GOSEI</span>
+</div>
+
+<nav>
+<a href="#home">ホーム</a>
+<a href="#business">事業内容</a>
+<a href="#factory">設備・工場</a>
+<a href="#strength">私たちの強み</a>
+<a href="#company">会社概要</a>
+<a href="#contact">お問い合わせ</a>
+</nav>
+
+</div>
 </header>
 
+
 <main>
+
 <section class="hero" id="home">
-  <div class="wrap hero-inner">
-    <p class="eyebrow">PLASTIC INJECTION MOLDING</p>
-    <h1>カタチにする力で<br>未来をつくる</h1>
-    <p class="lead">試作から量産まで。確かな技術で、ものづくりをサポートします。</p>
-    <a class="button" href="#contact">お問い合わせ</a>
-  </div>
+
+<div class="hero-inner">
+
+<div class="eyebrow">
+PLASTIC INJECTION MOLDING
+</div>
+
+<h1>
+確かな成形技術で、<br>
+ものづくりを支える。
+</h1>
+
+<p>
+有限会社 美山合成は、プラスチック射出成形を通じて、
+試作から量産までお客様のものづくりを支えます。
+</p>
+
+<a class="button" href="#business">
+事業内容を見る
+</a>
+
+</div>
 </section>
 
-<section class="section" id="business">
-  <div class="wrap">
-    <p class="eyebrow">OUR STRENGTHS</p><h2>ものづくりを支える対応力</h2>
-    <div class="cards">
-      <article><b>01</b><h3>試作対応</h3><p>アイデアを具体化する試作段階から、射出成形の技術でサポートします。</p></article>
-      <article><b>02</b><h3>量産対応</h3><p>試作後の量産まで、一貫したものづくりに対応します。</p></article>
-      <article><b>03</b><h3>小ロット・短納期</h3><p>案件ごとの条件に合わせ、柔軟な生産対応を目指します。</p></article>
-      <article><b>04</b><h3>技術提案</h3><p>成形の知見を活かし、製品づくりに適した方法をご提案します。</p></article>
-    </div>
-  </div>
+
+<section class="business" id="business">
+
+<div class="container">
+
+<div class="section-title">
+<span>OUR BUSINESS</span>
+<h2>事業内容</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-number">01</div>
+<h3>プラスチック射出成形</h3>
+<p>
+樹脂製品の射出成形加工を中心に、
+品質を大切にしたものづくりを行います。
+</p>
+</div>
+
+<div class="card">
+<div class="card-number">02</div>
+<h3>試作対応</h3>
+<p>
+量産前の検討段階から、
+製品化に向けた試作・成形に対応します。
+</p>
+</div>
+
+<div class="card">
+<div class="card-number">03</div>
+<h3>量産対応</h3>
+<p>
+試作から量産まで、
+安定した生産と品質を目指します。
+</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<section class="section alt" id="company">
-  <div class="wrap two">
-    <div><p class="eyebrow">ABOUT US</p><h2>有限会社 美山合成</h2><p>プラスチック射出成形加工を通じ、試作から量産までお客様のものづくりを支えます。</p></div>
-    <dl class="info">
-      <dt>会社名</dt><dd>有限会社 美山合成</dd>
-      <dt>代表取締役</dt><dd>廣田 耕司</dd>
-      <dt>所在地</dt><dd>〒192-0152 東京都八王子市美山町1874</dd>
-      <dt>TEL / FAX</dt><dd>(042)651-3771</dd>
-      <dt>携帯</dt><dd>090-8942-5982</dd>
-      <dt>E-mail</dt><dd><a href="mailto:miyamagousei-56@j4.gmobb.jp">miyamagousei-56@j4.gmobb.jp</a></dd>
-    </dl>
-  </div>
+
+<section class="photo-section" id="factory">
+
+<div class="container">
+
+<div class="section-title">
+<span>FACTORY</span>
+<h2>設備・工場</h2>
+</div>
+
+<div class="photos">
+
+<div class="photo">
+工場・射出成形機の写真
+</div>
+
+<div class="photo">
+製造工程の写真
+</div>
+
+<div class="photo">
+製品・設備の写真
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section class="section" id="works">
- <div class="wrap"><p class="eyebrow">PROCESS</p><h2>ご相談から納品まで</h2>
- <div class="process"><span>ご相談</span><i>→</i><span>ご提案</span><i>→</i><span>試作</span><i>→</i><span>量産</span><i>→</i><span>納品</span></div></div>
+
+<section class="strengths" id="strength">
+
+<div class="container">
+
+<div class="section-title">
+<span>OUR STRENGTH</span>
+<h2>美山合成のものづくり</h2>
+</div>
+
+<div class="strength-grid">
+
+<div class="strength">
+<h3>確かな技術</h3>
+<p>
+積み重ねてきた成形技術を活かし、
+安定した製品づくりに取り組みます。
+</p>
+</div>
+
+<div class="strength">
+<h3>柔軟な対応</h3>
+<p>
+製品や生産条件に合わせ、
+試作から量産まで柔軟に対応します。
+</p>
+</div>
+
+<div class="strength">
+<h3>品質への取り組み</h3>
+<p>
+製造工程を大切にし、
+安定した品質の維持を目指します。
+</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<section class="section dark" id="equipment">
- <div class="wrap"><p class="eyebrow">EQUIPMENT</p><h2>設備・技術</h2>
- <div class="cards compact"><article><h3>射出成形</h3><p>樹脂部品の試作・量産に対応。</p></article><article><h3>金型</h3><p>金型製作・改造を含めたご相談に対応。</p></article><article id="quality"><h3>品質管理</h3><p>安定した製品づくりを支える品質管理に取り組みます。</p></article></div></div>
+
+<section class="company" id="company">
+
+<div class="container">
+
+<div class="section-title">
+<span>COMPANY</span>
+<h2>会社概要</h2>
+</div>
+
+<div class="company-grid">
+
+<div>
+<p class="company-message">
+ものづくりに誠実に向き合い、<br>
+お客様の製品づくりを支えます。
+</p>
+</div>
+
+<table>
+<tr>
+<th>会社名</th>
+<td>有限会社 美山合成</td>
+</tr>
+
+<tr>
+<th>事業内容</th>
+<td>プラスチック射出成形加工</td>
+</tr>
+
+<tr>
+<th>所在地</th>
+<td>東京都八王子市美山町</td>
+</tr>
+
+<tr>
+<th>お問い合わせ</th>
+<td>詳細はお問い合わせください</td>
+</tr>
+</table>
+
+</div>
+</div>
 </section>
 
-<section class="section contact" id="contact">
- <div class="wrap"><p class="eyebrow">CONTACT</p><h2>ものづくりのご相談はこちら</h2>
- <p>試作・量産など、まずはお気軽にお問い合わせください。</p>
- <div class="contact-box"><a href="tel:0426513771">TEL / FAX (042)651-3771</a><a href="mailto:miyamagousei-56@j4.gmobb.jp">miyamagousei-56@j4.gmobb.jp</a></div>
- </div>
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<h2>お問い合わせ</h2>
+
+<p>
+試作・量産・射出成形に関するご相談など、<br>
+お気軽にお問い合わせください。
+</p>
+
+<a class="button" href="mailto:">
+メールでお問い合わせ
+</a>
+
+</div>
 </section>
+
 </main>
 
-<footer><div class="wrap"><strong>有限会社 美山合成</strong><p>〒192-0152 東京都八王子市美山町1874</p><small>© 2026 有限会社 美山合成 All Rights Reserved.</small></div></footer>
+
+<footer>
+
+<div class="footer-inner">
+
+<strong>有限会社 美山合成</strong>
+
+<p>MIYAMA GOSEI</p>
+
+<p style="margin-top:20px;font-size:12px;">
+© MIYAMA GOSEI. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
 </body>
 </html>
